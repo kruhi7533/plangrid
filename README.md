@@ -1,59 +1,107 @@
- Material Forecast Backend (Flask)
+# 🏗️ PlanGrid - AI Material Forecasting System
 
-## 🚀 Overview
-- **Backend**: Flask (JWT auth, CORS)
-- **DB**: MongoDB (collections: `users`, `projects`, `forecasts`, `project_forecasts`, `inventory`, `orders`, `material_actuals`)
-- **ML artifacts**: `multi_xgb_model.joblib`, `feature_cols1.joblib`, `target_cols1.joblib`, `label_encoders.joblib`
-- **Data**: `powergrid_realistic_material_dataset1.csv`
-- **Frontend**: React + Vite (`frontend/`)
+> **Advanced Material Demand Forecasting & Supply Chain Management for Power Grid Projects**
 
-Default server: `http://localhost:5000`
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Stack](https://img.shields.io/badge/Stack-MERN_%2B_Flask-blue)
+![License](https://img.shields.io/badge/License-MIT-orange)
 
-## 📦 Prerequisites
-- Python 3.12 (recommended)
-- MongoDB Community Server running locally
-- Node.js 18+ (for the React frontend)
+## 📖 Overview
 
-## 🔧 Environment Variables
-Create a `.env` (or set OS env vars) before running the backend:
+**PlanGrid** is a full-stack web application designed to optimize material planning for large-scale infrastructure projects. It leverages **Machine Learning (XGBoost)** to predict material requirements (like Steel Towers, Conductors, Insulators) based on project parameters, reducing inventory waste and procurement delays.
+
+Beyond forecasting, it offers a complete suite for **Supply Chain Management**, including inventory tracking, supplier management, and automated purchase approvals.
+
+---
+
+## ✨ Key Features
+
+### 🧠 AI-Powered Forecasting
+*   **Demand Prediction**: Predicts quantity of 5+ key materials using historical data.
+*   **XGBoost Model**: Trained on realistic power grid datasets for high accuracy.
+*   **Confidence Scoring**: Provides confidence intervals for every prediction.
+
+### 📊 Interactive Dashboard
+*   **Live Analytics**: Real-time project status and material consumption trends.
+*   **Visualizations**: Interactive charts for forecast vs. actual comparisons.
+*   **Map View**: Geospatial visualization of active project sites.
+
+### ⛓️ Supply Chain & Operations
+*   **Inventory Management**: Track stock levels across multiple warehouses.
+*   **Procurement**: Automated purchase request and order approval workflows.
+*   **Supplier Portal**: Manage vendor ratings and order history.
+*   **Team Collaboration**: Role-based access and team management.
+
+---
+
+## 🛠️ Technology Stack
+
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | React + Vite | Fast, responsive UI with customized Tailwind CSS. |
+| **Backend** | Python (Flask) | Robust API handling business logic and ML inference. |
+| **Database** | MongoDB | Flexible NoSQL schema for complex project data. |
+| **ML Engine** | Scikit-Learn / XGBoost | Predictive modeling and data processing. |
+| **Auth** | JWT (JSON Web Tokens) | Secure, stateless authentication. |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+*   Node.js (v18+)
+*   Python (v3.10+)
+*   MongoDB (Local or Atlas)
+
+### 1. Clone the Repository
 ```bash
-# Mongo
-MONGO_URI=mongodb://localhost:27017/PLANGRID_DATA
-
-# JWT
-# You can override the in-code default `plangrid-secret-key-2025`
-JWT_SECRET_KEY=your-secure-secret
-
-# From repo root
-cd backend
-
-# Create & activate virtualenv (Windows PowerShell)
-python -m venv venv
-./venv/Scripts/Activate.ps1
-
-# Install deps
-pip install -r requirements.txt
-
-# Ensure MongoDB is running locally, then start the API
-python app.py
-# Flask will bind 0.0.0.0:5000 in debug mode
+git clone https://github.com/kruhi7533/plangrid.git
+cd plangrid
 ```
 
-## 💻 Setup & Run (Frontend)
+### 2. Backend Setup
+```bash
+cd backend
+python -m venv venv
+# Windows
+.\venv\Scripts\Activate
+# Mac/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+python app.py
+# Server runs on http://localhost:5000
+```
+
+### 3. Frontend Setup
 ```bash
 cd frontend
 npm install
 npm run dev
-# Vite dev server (defaults to http://localhost:5173)
+# App runs on http://localhost:5173
 ```
 
-## 🗂️ Project Structure (key parts)
-- `backend/app.py` — Flask app, routes, Mongo init, ML inference
-- `backend/requirements.txt` — Python dependencies
-- `frontend/` — React + Vite app (Tailwind config present)
-- ML/data files at repo root:
-  - `multi_xgb_model.joblib`
-  - `feature_cols1.joblib`
-  - `target_cols1.joblib`
-  - `label_encoders.joblib`
-  - `powergrid_realistic_material_dataset1.csv`
+---
+
+## 📂 Project Structure
+
+```bash
+plangrid/
+├── backend/                 # Flask API & ML Logic
+│   ├── app.py              # Application Entry Point
+│   ├── email_service.py    # Notification System
+│   └── models/             # Database Schemas
+├── frontend/                # React Client
+│   ├── src/
+│   │   ├── components/     # Reusable UI Components
+│   │   ├── pages/          # Feature Pages (Dashboard, Inventory...)
+│   │   └── contexts/       # Global State (Auth, Theme)
+├── *.joblib                 # Pre-trained ML Models
+└── README.md                # Documentation
+```
+
+## 👥 Contributors
+Developed by **SDE Interns** as a capstone project for intelligent infrastructure management.
+
+---
+*© 2025 PlanGrid Team. All Rights Reserved.*

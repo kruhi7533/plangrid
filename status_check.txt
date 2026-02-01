@@ -1,0 +1,21 @@
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	status_check.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+origin	https://github.com/kruhi7533/plangrid.git (fetch)
+origin	https://github.com/kruhi7533/plangrid.git (push)
+commit 9133e1f454d6ae817ffe7da9b4a86b744013e9c0
+Author: SDE Developer <developer@plangrid.local>
+Date:   Mon Feb 2 04:27:47 2026 +0530
+
+    chore: include remaining tests, assets, and configurations
